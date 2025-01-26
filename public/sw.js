@@ -66,11 +66,14 @@ async function syncTexts() {
     });
 
     if (unsyncedTexts) {
-      const response = await fetch("http://localhost:3004/api/save-texts", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(unsyncedTexts),
-      });
+      const response = await fetch(
+        "https://sestilabos-s1ym.onrender.com/api/save-texts",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(unsyncedTexts),
+        }
+      );
 
       if (response.ok) {
         self.registration.showNotification("Sync completed!", {

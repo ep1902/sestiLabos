@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const store = transaction.objectStore("notes");
 
       store.delete(Number(id));
-      fetch(`http://localhost:3004/delete-data/${id}`, {
+      fetch(`https://sestilabos-s1ym.onrender.com/delete-data/${id}`, {
         method: "DELETE",
       })
         .then((response) => response.json())
@@ -181,7 +181,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function getData() {
     try {
-      const response = await fetch("http://localhost:3004/get-data");
+      const response = await fetch(
+        "https://sestilabos-s1ym.onrender.com/get-data"
+      );
 
       if (!response.ok) {
         throw new Error("Error fetching data");
